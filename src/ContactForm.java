@@ -29,8 +29,16 @@ public class ContactForm extends JDialog {
         add(cancel);
 
         save.addActionListener(e -> {
-            saved=true;
-            setVisible(false);
+            if (tfName.getText().trim().isEmpty() ||
+                    tfSurnames.getText().trim().isEmpty() ||
+                    tfPhone.getText().trim().isEmpty() ||
+                    tfEmail.getText().trim().isEmpty()) {
+
+                JOptionPane.showMessageDialog(this, "Por favor, rellena todos los campos.", "Campos vacíos", JOptionPane.WARNING_MESSAGE);
+            } else {
+                saved = true;
+                setVisible(false);
+            }
         });
 
         cancel.addActionListener(e -> {

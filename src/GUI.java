@@ -126,6 +126,11 @@ public class GUI {
         String surnames = (String) t.getValueAt(r, 2);
         String telefon = (String) t.getValueAt(r, 3);
         String email = (String) t.getValueAt(r, 4);
+        if(name.isEmpty() || surnames.isEmpty() || telefon.isEmpty() || email.isEmpty()) {
+            showMessageDialog(null, "Ningún campo puede quedar vacío.", "Error", JOptionPane.ERROR_MESSAGE);
+            searchAll();
+            return;
+        }
 
         this.ctrl.actualitzarContacte(id, name, surnames, telefon, email);
     }
